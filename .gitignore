@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+.env
+
+# Audit logs (auto-generated at runtime)
+results/audit_log.jsonl
+
+# IDE
+.vscode/
+.idea/

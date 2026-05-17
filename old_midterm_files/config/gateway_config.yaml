@@ -1,0 +1,20 @@
+# -------------------------------------------------------
+# LLM Security Gateway - Configuration File
+# All thresholds and weights are adjustable here.
+# -------------------------------------------------------
+
+thresholds:
+  rule_block: 0.5        # rule score >= this => likely attack
+  semantic_block: 0.6    # semantic score >= this => likely attack
+  final_block: 0.65      # final_risk >= this => BLOCK
+  final_mask: 0.1        # final_risk >= this (but < block) => MASK if PII found
+
+weights:
+  pii_weight: 0.15       # added to final_risk when PII is detected
+  secret_weight: 0.10    # added when a secret-like PII (API key, etc.) is found
+
+languages:
+  supported: ["en", "ur", "ko", "ar", "hi", "ro"]   # detected language codes
+
+logging:
+  audit_log_file: "results/audit_log.jsonl"          # one JSON per line
